@@ -1,0 +1,15 @@
+{
+  "name": "kaiobt",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Arsenluper",
+  "license": "ISC",
+  "dependencies": {
+    "discord-autorole-badges": "^2.0.0",
+    "discord.js": "^12.5.1"
+  }
+}
