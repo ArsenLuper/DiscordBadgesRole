@@ -1,32 +1,31 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-
-client.on('ready' , () => {
-    console.log(`Başarıyla  Başlatıldı ${client.user.tag}!`);
-});
-
 const {Manager} = require('discord-autorole-badges');
+const {Client} = require('discord.js');
+const client = new Client({ intents: 32767})
 
 
 let manager = new Manager(client, {
-    DISCORD_EMPLOYEE: "Rol ID",  //Discord Staff
-    PARTNERED_SERVER_OWNER: "Rol ID", //Partner Server Sahibi
-    HYPESQUAD_EVENTS: "Rol ID",     //Hype Squad Etkinliği
-    BUGHUNTER_LEVEL_1: "Rol ID",    //Bug Hunter (Yeşil)
-    HOUSE_BRAVERY: "Rol ID",        //Hype squad Bravery (Mor)
-    HOUSE_BRILLIANCE: "Rol ID",     //Hype squad Brilliance (Kırmızı)
-    HOUSE_BALANCE: "Rol ID",        //Hype squad Balance (Yeşil)
-    EARLY_SUPPORTER: "Rol ID",      //Erken Dönem Destekcisi
-    TEAM_USER: "Rol ID",            
-    BUGHUNTER_LEVEL_2: "Rol ID",     //Bug Hunter (Sarı, Altın)
-    VERIFIED_BOT: "Rol ID",          //Onaylanmış Bot
-    EARLY_VERIFIED_BOT_DEVELOPER: "Rol ID",  //Erken Dönem Bot Geliştiricisi
-    DISCORD_CERTIFIED_MODERATOR: "Rol ID",   //Discord Sertifikalı Mod
+    STAFF: "role_id",  ///discord staff
+    PARTNER: "role_id", ///discord partner
+    HYPESQUAD: "role_id", /// Hypesquad event rozeti
+    BUG_HUNTER_LEVEL_1: "role_id",   ///Yesil Bug Hunter Rozeti
+    HYPESQUAD_ONLINE_HOUSE_1: "role_id",  ///Hypesquad rozetlerinden birisi
+    HYPESQUAD_ONLINE_HOUSE_2: "role_id",  ///Hypesquad rozetlerinden birisi
+    HYPESQUAD_ONLINE_HOUSE_3: "role_id",  ///Hypesquad rozetlerinden birisi
+    PREMIUM_EARLY_SUPPORTER: "role_id",   ///Early sup rozeti
+    TEAM_USER: "role_id",  
+    BUG_HUNTER_LEVEL_2: "role_id",   ///Gold bug hunter rozeti
+    VERIFIED_BOT: "role_id",          ///Onaylanmis Bot
+    ACTIVE_DEVELOPER: "role_id",     ////Aktif Gelistirici
+    VERIFIED_DEVELOPER: "role_id",    /// Erken onaylanan bot developer
+    CERTIFIED_MODERATOR: "role_id",    ///Mod rozeti
 
 })
 client.on("guildMemberAdd", async (member) => {
     await manager.setRole(member);
 })
 
+client.on("ready", () => {
+    console.log("Basariyla Baslatildi")
+})
 
-client.login("BotToken");
+client.login("token")
